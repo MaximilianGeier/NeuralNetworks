@@ -6,9 +6,19 @@ namespace NeuralNetworks
 {
     class Neuron
     {
-        public List<Synapse> Synapses = new List<Synapse>();
+        public List<Synapse> Synapses = new List<Synapse>(); //synapses conects to children neurons
         public double Value { get; set; }
-        public void TryAct(double Value) //добавить сюда функцию
+
+        public void ActivateWeights() //activate weights when creating neurons
+        {
+            var rnd = new Random();
+            foreach (var s in Synapses)
+            {
+                s.Weight = rnd.Next(20) / 100;
+            }
+        }
+
+        public void TryAct(double Value) //add activate functions here
         {
             Activate(Value);
         }

@@ -23,7 +23,10 @@ namespace NeuralNetworks
         {
             Neuron[] output = new Neuron[size];
             for(int i = 0; i < output.Length; i++)
+            {
                 output[i] = new Neuron();
+                output[i].ActivateWeights();
+            }
             return output;
         }
     }
