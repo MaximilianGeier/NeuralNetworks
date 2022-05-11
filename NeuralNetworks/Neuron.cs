@@ -14,19 +14,19 @@ namespace NeuralNetworks
             var rnd = new Random();
             foreach (var s in Synapses)
             {
-                s.Weight = rnd.Next(20) / 100;
+                s.Weight = (double)rnd.Next(20) / 100;
             }
         }
 
-        public void TryAct(double Value) //add activate functions here
+        public void TryAct() //add activate functions here
         {
-            Activate(Value);
+            Activate();
         }
-        void Activate(double value)
+        void Activate()
         {
             foreach(Synapse syn in Synapses)
             {
-                syn.Child.Value += value * syn.Weight;
+                syn.Child.Value += this.Value * syn.Weight;
             }
         }
     }
